@@ -3,21 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website Title</title>
+    <title>Steam Game Rating</title>
     <!-- Add Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            /* Set the background image URL */
             background-image: url('../static/cover.jpg');
-            /* Set background size to cover the entire viewport */
             background-size: cover;
-            /* Set background attachment to fixed for a fixed background */
             background-attachment: fixed;
-            /* Add a semi-transparent overlay to make the image darker */
             position: relative;
         }
-        /* Add a pseudo-element for the overlay */
         body::before {
             content: '';
             position: absolute;
@@ -25,40 +20,92 @@
             right: 0;
             bottom: 0;
             left: 0;
-            background: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) for the darkness level */
-            z-index: -1; /* Place the overlay behind the content */
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
         }
-        /* You can style other elements here if needed */
-        /* For example, you might want to style the content within a container */
         .container {
             max-width: 800px;
+            height: 1000px;
             margin: 0 auto;
             padding: 20px;
-            /* Add more styles as needed */
         }
-        /* Ensure text is readable against the background */
-        h1, h2, a {
-            color: #fff; /* Set text color to white for better readability */
+        label, h1 {
+            justify-content: center;
+            color: #fff;
         }
     </style>
 </head>
-<body class="bg-light">
-
-    <div class="container text-center">
-
-        <h1>YOUR GAME HAS:</h1>
-    
-        {% if data['pred'] == 0 %}
-            <h1>{{ data['pred'] }}</h1>
-            <!-- <img src='static\setosa.jpg'> -->
-        {% else %}
-            <h1>{{ data['pred'] }}</h1>
-            <!-- <img src='static\verci.jpg'> -->
-        {% endif %}
-        <h1>{{ data['class'] }}</h1>
-        <br><br>
-        <a class="btn btn-primary" href='/'>Go Back to Home Page</a>
-
+<body>
+    <div class="container">
+        <h1 class="text-center"> LET'S RATE YOUR GAME! </h1><br>
+        <form method="POST" action="{{url_for('home')}}" class="needs-validation" novalidate>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Left Column -->
+                    <div class="form-group">
+                        <label for="genre">Genre:</label>
+                        <input type="text" class="form-control" id="genre" name="a" placeholder="Enter genre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="withDLC">withDLC:</label>
+                        <input type="text" class="form-control" id="withDLC" name="b" placeholder="Enter 1 if your game has DLC else 0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="isMature">isMature:</label>
+                        <input type="text" class="form-control" id="isMature" name="c" placeholder="Enter 1 if your game has Mature content else 0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Developer">Developer:</label>
+                        <input type="text" class="form-control" id="Developer" name="d" placeholder="Enter developer" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Right Column -->
+                    <div class="form-group">
+                        <label for="Publisher">Publisher:</label>
+                        <input type="text" class="form-control" id="Publisher" name="e" placeholder="Enter publisher" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="PositiveReviews">PositiveReviews:</label>
+                        <input type="text" class="form-control" id="PositiveReviews" name="f" placeholder="Enter positive reviews" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="TotalReviews">TotalReviews:</label>
+                        <input type="text" class="form-control" id="TotalReviews" name="g" placeholder="Enter total reviews" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="OriginalPrice">OriginalPrice:</label>
+                        <input type="text" class="form-control" id="OriginalPrice" name="i" placeholder="Enter original price" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Left Column -->
+                    <div class="form-group">
+                        <label for="DiscountPercent">DiscountPercent:</label>
+                        <input type="text" class="form-control" id="DiscountPercent" name="j" placeholder="Enter discount percent" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Right Column -->
+                    <div class="form-group">
+                        <label for="ReleaseYear">ReleaseYear:</label>
+                        <input type="text" class="form-control" id="ReleaseYear" name="k" placeholder="Enter release year" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ReleaseMonth">ReleaseMonth:</label>
+                        <input type="text" class="form-control" id="ReleaseMonth" name="l" placeholder="Enter release month" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ReleaseDay">ReleaseDay:</label>
+                        <input type="text" class="form-control" id="ReleaseDay" name="m" placeholder="Enter release day" required>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more form groups for other inputs -->
+            <button type="submit" class="btn btn-primary">Predict!</button>
+        </form>
     </div>
 
     <!-- Add Bootstrap JavaScript (optional, for certain features) -->

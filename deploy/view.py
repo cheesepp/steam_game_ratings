@@ -49,12 +49,13 @@ def home():
     data5 = request.form['e']
     data6 = request.form['f']
     data7 = request.form['g']
-    data8 = request.form['h']
+    data8 = request.form['j']
     data9 = request.form['i']
     data10 = request.form['k']
     data11 = request.form['l']
     data12 = request.form['m']
-    print(data1)
+    discounted_price = int(data9) - int(data9) * float(data8)
+    negative_reviews = int(data7) - int(data6)
     data = {
         'Genre': data1,
         'withDLC': data2,
@@ -63,21 +64,22 @@ def home():
         'Publisher': data5,
         'PositiveReviews': data6,
         'TotalReviews': data7,
-        'NegativeReviews': data8,
-        'Price': data9,
+        'NegativeReviews': negative_reviews,
+        'DiscountPercent': data8,
+        'DiscountedPrice': discounted_price,
+        'OriginalPrice': data9,
         'ReleaseYear': data10,
         'ReleaseMonth': data11,
         'ReleaseDay': data12,
     }
     df = pd.DataFrame(data=data, index=[0])
-    arr = np.array([[data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12]])
     pred = model.predict(df)
     classified = rating_classification(pred=pred, total_reviews=data7)
     return render_template('after.html', data={'pred': pred, 'class': classified})
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
 
 
 
