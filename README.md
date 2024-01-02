@@ -5,7 +5,7 @@ The final project of Introduction to Data Science
 
  - [Information](#information)
  - [Introduction](#introduction)
- - [Project Structure](#structure)
+ - [Project Structure](#project-structure)
  - [Project Plan](#project-plan)
  - [Usage](#usage)
 
