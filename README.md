@@ -1,7 +1,6 @@
 # IDS FINAL PROJ _ STEAM GAME RATINGS
 The final project of Introduction to Data Science
-![alt text](https://github.com/cheesepp/steam_game_ratings/blob/main/deploy/notebooks/static/cover.jpg?raw=true)
-
+![alt text](https://github.com/cheesepp/steam_game_ratings/blob/main/deploy/static/cover.jpg)
 ## Table of Contents
 
  - [Information](#information)
