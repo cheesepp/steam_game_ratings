@@ -33,7 +33,9 @@ The final project of Introduction to Data Science
 │   ├──📜crawl.ipynb               # used to retrieve data from url
 │   ├──📜preprocessing.ipynb       # analyzing and adjustment the data
 │   ├──📜eda_questions.ipynb       # exploratory and questions about data
-│   └──📜data_modeling.ipynb       # training a ML model for data
+│   ├──📜data_modeling.ipynb       # training a ML model for data
+    ├──📜model.pkl                 # model of the project
+    └──📜fined_tune.pkl            # fined-tune model
 ├──📦deploy                        # contains the source code for deployment
 │   ├──📜view.py                   # main source code for deployment
 │   ├──📦statics                   # contains static files (image)
@@ -41,7 +43,6 @@ The final project of Introduction to Data Science
 │   └──📦templates                 # contains UI of product
 │       ├──📜after.html
 │       └──📜home.html
-├──📜model.pkl                     # model of the project
 └──📜README.md
 ```
 

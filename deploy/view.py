@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import pickle
 import numpy as np
 import pandas as pd
-model = pickle.load(open('./model.pkl', 'rb'))
+model = pickle.load(open('../data_modelling/model.pkl', 'rb'))
 
 app = Flask(__name__)
 
