@@ -2,7 +2,8 @@ from flask import Flask, render_template, request
 import pickle
 import numpy as np
 import pandas as pd
-model = pickle.load(open('../data_modelling/model.pkl', 'rb'))
+import math
+model = pickle.load(open('model.pkl', 'rb'))
 
 app = Flask(__name__)
 
@@ -54,6 +55,7 @@ def home():
     data10 = request.form['k']
     data11 = request.form['l']
     data12 = request.form['m']
+    data13 = request.form['u']
     discounted_price = int(data9) - int(data9) * float(data8)
     negative_reviews = int(data7) - int(data6)
     data = {
@@ -68,6 +70,7 @@ def home():
         'DiscountPercent': data8,
         'DiscountedPrice': discounted_price,
         'OriginalPrice': data9,
+        'Languages': data13,
         'ReleaseYear': data10,
         'ReleaseMonth': data11,
         'ReleaseDay': data12,
@@ -75,22 +78,8 @@ def home():
     df = pd.DataFrame(data=data, index=[0])
     pred = model.predict(df)
     classified = rating_classification(pred=pred, total_reviews=data7)
-    return render_template('after.html', data={'pred': pred, 'class': classified})
+    return render_template('after.html', data={'pred': np.round(pred, 3), 'class': classified})
 
 
-if __name__ == "__main__":
+if __name__ == "_main_":
     app.run(host='0.0.0.0', port=8080, debug=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
