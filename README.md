@@ -34,10 +34,9 @@ The final project of Introduction to Data Science
 │   ├──📜preprocessing.ipynb       # analyzing and adjustment the data
 │   ├──📜eda_questions.ipynb       # exploratory and questions about data
 │   ├──📜data_modeling.ipynb       # training a ML model for data
-    ├──📜model.pkl                 # model of the project
-    └──📜fined_tune.pkl            # fined-tune model
 ├──📦deploy                        # contains the source code for deployment
-│   ├──📜view.py                   # main source code for deployment
+│   ├──📜app.py                   # main source code for deployment
+|   ├──📜model.pkl                 # model of the project
 │   ├──📦statics                   # contains static files (image)
 │   │   └──📜cover.png
 │   └──📦templates                 # contains UI of product
@@ -49,6 +48,7 @@ The final project of Introduction to Data Science
 ## Project Plan
 
 [Trello - Project management](https://trello.com/b/jXnkAonb/steam-game-ratings)
+[Crawling website](https://store.steampowered.com/search/?category1=998&ndl=1)
 
 ## Usage
 
@@ -59,13 +59,13 @@ The final project of Introduction to Data Science
 ```
 2. Open Jupyter Notebook (Anaconda/Miniconda/...)
 
-3. Run the .inpynb files in notebooks folder (optional if you just want to use the deployed model)
+3. Run the .inpynb files in notebooks folder (optional, if you just want to use the deployed model, you can ignore this step)
 
 - How to deploy project's model:
 Open the shell or terminal
 ```
 pip install Flask
 cd deploy
-python view.py
+python app.py
 Wait to get the url and run the server...
 ```
